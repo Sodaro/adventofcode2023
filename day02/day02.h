@@ -3,7 +3,7 @@
 #include <regex>
 #include <unordered_map>
 void day02() {
-  std::unordered_map<std::string, int> numberOfCubesByColor = {
+  std::unordered_map<std::string, int> maxNrOfCubesByColor = {
       {"red", 12}, {"green", 13}, {"blue", 14}};
   int sumOfGameIDs = 0;
   int powerSum = 0;
@@ -15,28 +15,25 @@ void day02() {
     std::regex_search(line, sm, std::regex("(\\d+):"));
     gameID = sm[1];
 
-    int red = 1, green = 1, blue = 1;
+    std::unordered_map<std::string, int> cubeCounts{
+        {"red", 0}, {"green", 0}, {"blue", 0}};
     line = std::regex_replace(line, std::regex("Game \\d+: "), "");
     for (auto &subset : splitStrByDelim(line, "; ")) {
       for (auto &cubePair : splitStrByDelim(subset, ", ")) {
         auto colorCount = splitStrByDelim(cubePair, " ");
         int count = std::stoi(colorCount[0]);
 
-        if (colorCount[1] == "red" && count > red)
-          red = count;
-        else if (colorCount[1] == "green" && count > green)
-          green = count;
-        else if (colorCount[1] == "blue" && count > blue)
-          blue = count;
+        if (count > cubeCounts[colorCount[1]])
+          cubeCounts[colorCount[1]] = count;
 
-        if (count > numberOfCubesByColor[colorCount[1]])
+        if (count > maxNrOfCubesByColor[colorCount[1]])
           isValidForPart1 = false;
       }
     }
     if (isValidForPart1)
       sumOfGameIDs += std::stoi(gameID);
 
-    int power = red * green * blue;
+    int power = cubeCounts["red"] * cubeCounts["green"] * cubeCounts["blue"];
     powerSum += power;
   }
 
