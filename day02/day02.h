@@ -1,7 +1,7 @@
 #pragma once
-#include "../common.h"
 #include <regex>
 #include <unordered_map>
+#include "../myhelpers.h"
 void day02() {
   std::unordered_map<std::string, int> maxNrOfCubesByColor = {
       {"red", 12}, {"green", 13}, {"blue", 14}};

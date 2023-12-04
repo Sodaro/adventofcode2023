@@ -2,7 +2,7 @@
 #include <regex>
 #include <unordered_map>
 
-#include "../common.h"
+#include "../myhelpers.h"
 
 void day01Part1() {
   int sum = 0;
