@@ -18,7 +18,8 @@ std::vector<std::string> splitStrByDelim(std::string s, std::string delimiter) {
     while ((pos_end = s.find(delimiter, pos_start)) != std::string::npos) {
         token = s.substr(pos_start, pos_end - pos_start);
         pos_start = pos_end + delim_len;
-        res.emplace_back(token);
+        if (token != "")
+            res.emplace_back(token);
     }
 
     res.emplace_back(s.substr(pos_start));
