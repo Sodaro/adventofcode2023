@@ -29,4 +29,6 @@ void day04() {
       std::accumulate(nrOfCopiesOfCards.begin(), nrOfCopiesOfCards.end(), 0) + nrOfCopiesOfCards.size();
   std::cout << valueOfCards << std::endl;
   std::cout << nrOfCards << std::endl;
+  writeToFile(std::to_string(valueOfCards), "day04/part1.txt");
+  writeToFile(std::to_string(nrOfCards), "day04/part2.txt");
 }
