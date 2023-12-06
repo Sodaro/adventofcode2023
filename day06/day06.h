@@ -13,17 +13,21 @@ void day06() {
   std::vector<std::string> distanceValues = splitStrByDelim(distanceInput, " ");
   std::vector<int> nrOfWaysToBeatRaces(timeValues.size(), 0);
 
-  // t == v
-  // v*(7-t) == t*(7-t)
-  // t*(7-t) >= 9
-  // 7t-t^2-9 >= 1 //check for >= 1 as we can't move for 0 duration
+  // t == s
+  // s*(T-t) == t*(T-t)
+  // t*(T-t) >= d
+  //
+  // d = 9, T = 7
+  // >= 1 as we can't move for 0 duration
+  // -t^2+t*7+(-9) >= 1
   // -t^2+7t+(-10) >= 0
+  // roots are our min and max times
 
   for (int i = 0; i < timeValues.size(); i++) {
     int raceDuration = std::stoi(timeValues[i]);
     int distanceToBeat = std::stoi(distanceValues[i]);
     int t = raceDuration;
-    int d = -(distanceToBeat+1);
+    int d = -(distanceToBeat + 1);
     float root1 = (-1 * t - std::sqrtf(std::pow(t, 2) - (-4 * d))) / -2;
     float root2 = (-1 * t + std::sqrtf(std::pow(t, 2) - (-4 * d))) / -2;
     nrOfWaysToBeatRaces[i] = (int)(std::floor(root1) - std::floor(root2));
@@ -43,7 +47,7 @@ void day06() {
   int64_t distanceToBeat = std::stoll(part2DistanceInput);
 
   int64_t t = raceDuration;
-  int64_t d = -(distanceToBeat+1);
+  int64_t d = -(distanceToBeat + 1);
   float root1 = (-1 * t - std::sqrtf(std::pow(t, 2) - (-4 * d))) / -2;
   float root2 = (-1 * t + std::sqrtf(std::pow(t, 2) - (-4 * d))) / -2;
   int64_t part2Output = (int64_t)(std::floor(root1) - std::floor(root2));
