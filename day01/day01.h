@@ -1,7 +1,7 @@
 #pragma once
 #include <regex>
 #include <unordered_map>
-
+#include <iostream>
 #include "../myhelpers.h"
 
 void day01Part1() {
