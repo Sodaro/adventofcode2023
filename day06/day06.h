@@ -6,11 +6,12 @@ void day06() {
   // can only charge at start of race
   // +1ms chargetime = +1mm/ms speed
   // output = nr of ways to beat each race multiplied together
-  auto lines = getLinesFromFile("day06/input.txt");
-  std::string timeInput = splitStrByDelim(lines[0], "Time:")[0];
-  std::string distanceInput = splitStrByDelim(lines[1], "Distance:")[0];
-  std::vector<std::string> timeValues = splitStrByDelim(timeInput, " ");
-  std::vector<std::string> distanceValues = splitStrByDelim(distanceInput, " ");
+  auto lines = aoc::getLinesFromFile("day06/input.txt");
+  std::string timeInput = aoc::splitStrByDelim(lines[0], "Time:")[0];
+  std::string distanceInput = aoc::splitStrByDelim(lines[1], "Distance:")[0];
+  std::vector<std::string> timeValues = aoc::splitStrByDelim(timeInput, " ");
+  std::vector<std::string> distanceValues =
+      aoc::splitStrByDelim(distanceInput, " ");
   std::vector<int> nrOfWaysToBeatRaces(timeValues.size(), 0);
 
   // t == s
@@ -53,6 +54,6 @@ void day06() {
   int64_t part2Output = (int64_t)(std::floor(root1) - std::floor(root2));
 
   std::cout << part2Output << std::endl;
-  writeToFile(std::to_string(part1Output), "day06/part1.txt");
-  writeToFile(std::to_string(part2Output), "day06/part2.txt");
+  aoc::writeToFile(std::to_string(part1Output), "day06/part1.txt");
+  aoc::writeToFile(std::to_string(part2Output), "day06/part2.txt");
 }

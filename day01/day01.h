@@ -6,7 +6,7 @@
 
 void day01Part1() {
   int sum = 0;
-  for (auto line : getLinesFromFile("day01/part1.txt")) {
+  for (auto line : aoc::getLinesFromFile("day01/part1.txt")) {
     line = std::regex_replace(line, std::regex(R"#(\D)#"), "");
     std::string number = "";
     number += line.front();
@@ -14,7 +14,7 @@ void day01Part1() {
     sum += std::stoi(number);
   }
   std::cout << std::to_string(sum) << std::endl;
-  writeToFile(std::to_string(sum), "day01/output1.txt");
+  aoc::writeToFile(std::to_string(sum), "day01/output1.txt");
 }
 
 bool findFirstNumberStr(
@@ -41,7 +41,7 @@ void day01Part2() {
       {"seven", "7"}, {"eight", "8"}, {"nine", "9"}};
 
   int sum = 0;
-  for (auto line : getLinesFromFile("day01/part2.txt")) {
+  for (auto line : aoc::getLinesFromFile("day01/part2.txt")) {
     std::string firstDigit = "";
     std::string secondDigit = "";
     std::string word = "";
@@ -78,5 +78,5 @@ void day01Part2() {
     secondDigit = "";
   }
   std::cout << std::to_string(sum) << std::endl;
-  writeToFile(std::to_string(sum), "day01/output2.txt");
+  aoc::writeToFile(std::to_string(sum), "day01/output2.txt");
 }

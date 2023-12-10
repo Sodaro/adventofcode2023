@@ -143,8 +143,8 @@ void day07() {
 
   std::vector<Hand *> hands;
 
-  for (auto &line : getLinesFromFile("day07/input.txt")) {
-    auto values = splitStrByDelim(line, " ");
+  for (auto &line : aoc::getLinesFromFile("day07/input.txt")) {
+    auto values = aoc::splitStrByDelim(line, " ");
     Hand *newHand = new Hand();
     std::string cards = values[0];
     std::string bid = values[1];
@@ -213,6 +213,6 @@ void day07() {
     std::cout << debugStr << std::endl;
   }
   std::cout << part2Sum << std::endl;
-  writeToFile(std::to_string(part1Sum), "day07/part1.txt");
-  writeToFile(std::to_string(part2Sum), "day07/part2.txt");
+  aoc::writeToFile(std::to_string(part1Sum), "day07/part1.txt");
+  aoc::writeToFile(std::to_string(part2Sum), "day07/part2.txt");
 }

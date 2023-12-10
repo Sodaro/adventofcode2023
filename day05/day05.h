@@ -79,7 +79,7 @@ void day05() {
   DataGroup humidity;
   DataGroup location;
 
-  auto lines = getLinesFromFile("day05/test.txt");
+  auto lines = aoc::getLinesFromFile("day05/test.txt");
 
   std::string currentCategory = "";
   DataGroup *targetDataGroup = &soil;
@@ -103,7 +103,7 @@ void day05() {
         targetDataGroup = &location;
       }
     } else if (isdigit(lines[i][0])) {
-      auto values = splitStrByDelim(lines[i], " ");
+      auto values = aoc::splitStrByDelim(lines[i], " ");
 
       Data *newData = targetDataGroup->dataEntries.emplace_back(new Data());
       auto destinationRangeStart = std::stoul(values[0]);
@@ -119,10 +119,10 @@ void day05() {
     }
   }
   std::string seedsInput = lines[0];
-  std::string seedValues = splitStrByDelim(seedsInput, "seeds: ")[0];
+  std::string seedValues = aoc::splitStrByDelim(seedsInput, "seeds: ")[0];
 
   uint64_t part1lowestLocationValue = UINT64_MAX;
-  for (auto seed : splitStrByDelim(seedValues, " ")) {
+  for (auto seed : aoc::splitStrByDelim(seedValues, " ")) {
     uint64_t seedValue = std::stoul(seed);
     uint64_t soilValue = soil.getDestinationFromSource(seedValue);
     uint64_t fertilizerValue = fertilizer.getDestinationFromSource(soilValue);
@@ -140,7 +140,7 @@ void day05() {
   std::cout << part1lowestLocationValue << std::endl;
 
   uint64_t part2lowestLocationValue = UINT64_MAX;
-  auto part2Input = splitStrByDelim(seedValues, " ");
+  auto part2Input = aoc::splitStrByDelim(seedValues, " ");
 
   uint64_t seedUpperBound = UINT64_MAX;
   uint64_t seedLowerBound = 0;

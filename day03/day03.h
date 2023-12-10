@@ -92,7 +92,7 @@ void printCheckedCells(const PartNumber *partNumber,
 }
 
 void day03() {
-  auto lines = getLinesFromFile("day03/input.txt");
+  auto lines = aoc::getLinesFromFile("day03/input.txt");
   std::vector<PartNumber *> partNumbers;
   PartNumber *currentPart = nullptr;
   std::unordered_map<std::string, Gear *> gears;

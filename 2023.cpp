@@ -5,7 +5,9 @@
 #include "day05/day05.h"
 #include "day06/day06.h"
 #include "day07/day07.h"
-#include <iostream>
+#include "day08/day08.h"
+#include "day09/day09.h"
+
 int main() {
   // day01Part1();
   // day01Part2();
@@ -14,5 +16,7 @@ int main() {
   // day04();
   // day05();
   // day06();
-  day07();
+  // day07();
+  //day08();
+  day09();
 }
